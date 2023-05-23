@@ -212,7 +212,8 @@ def get_all_players():
 
 # less refactored way 
 def num_points_per_game(player_name):
-    for team in ['home', 'away']:
+    for team in game_dict().keys():
+        # .keys() works instead of ['home', 'away']
         for player in game_dict()[team]['players']: 
             if player['name'] == player_name: 
                 return player['points_per_game']
