@@ -207,8 +207,15 @@ def get_all_players():
     return all_players
 
 
+# def num_points_per_game(player_name):
+#     return get_all_players()[player_name]['points_per_game']
+
+# less refactored way 
 def num_points_per_game(player_name):
-    return get_all_players()[player_name]['points_per_game']
+    for team in ['home', 'away']:
+        for player in game_dict()[team]['players']: 
+            if player['name'] == player_name: 
+                return player['points_per_game']
         
 
 def player_age(player_name):
